@@ -1,3 +1,5 @@
+***Warning: This library should not be used just yet***
+
 # population
 
 Go library for the [World Population API](http://api.population.io/)
