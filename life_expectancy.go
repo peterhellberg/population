@@ -33,6 +33,7 @@ func (c *Client) RemainingLifeExpectancy(sex, country, date, age string) (Remain
 	return resp, err
 }
 
+// TotalLifeExpectancy contains the total life expectancy of a person
 type TotalLifeExpectancy struct {
 	Sex     string  `json:"sex"`
 	Country string  `json:"country"`
