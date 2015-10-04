@@ -36,11 +36,11 @@ func main() {
 
 ## Status
 
-[x] [countries](http://api.population.io/#!/countries)
-[x] [wp-rank](http://api.population.io/#!/wp-rank)
-[ ] [life-expectancy](http://api.population.io/#!/life-expectancy)
-[ ] [population](http://api.population.io/#!/population)
-[x] [mortality-distribution](http://api.population.io/#!/mortality-distribution)
+ - [x] [countries](http://api.population.io/#!/countries)
+ - [x] [wp-rank](http://api.population.io/#!/wp-rank)
+ - [ ] [life-expectancy](http://api.population.io/#!/life-expectancy)
+ - [ ] [population](http://api.population.io/#!/population)
+ - [x] [mortality-distribution](http://api.population.io/#!/mortality-distribution)
 
 ## License (MIT)
 
