@@ -12,14 +12,14 @@ func TestMortalityDistributionTable(t *testing.T) {
 		country string
 		sex     string
 		age     string
-		data    []MortalityDistribution
+		data    []MortalityDistributionRow
 	}{
 		{
 			"/mortality-distribution/United Kingdom/male/49y2m/today/",
 			"United Kingdom",
 			"male",
 			"49y2m",
-			[]MortalityDistribution{
+			[]MortalityDistributionRow{
 				{45, 0},
 				{50, 0.25046935870135467},
 			},
@@ -29,7 +29,7 @@ func TestMortalityDistributionTable(t *testing.T) {
 			"Germany",
 			"female",
 			"30y6m",
-			[]MortalityDistribution{
+			[]MortalityDistributionRow{
 				{45, 0},
 				{50, 0.25046935870135467},
 			},
