@@ -12,6 +12,25 @@ Go library for the [World Population API](http://api.population.io/)
 
     go get -u github.com/peterhellberg/population
 
+## Public API
+
+ - **[func NewClient(httpClients ...\*http.Client) \*Client](https://godoc.org/github.com/peterhellberg/population#NewClient)**
+ - **[func (c \*Client) DateByRank(sex, country, dob string, rank int) (DateByRank, error)](https://godoc.org/github.com/peterhellberg/population#Client.DateByRank)**
+ - **[func (c \*Client) ListCountries() (CountryList, error)](https://godoc.org/github.com/peterhellberg/population#Client.ListCountries)**
+ - **[func (c \*Client) MortalityDistributionTable(sex, country, age string) (MortalityDistributionTable, error)](https://godoc.org/github.com/peterhellberg/population#Client.MortalityDistributionTable)**
+ - **[func (c \*Client) RankByAge(sex, country, dob, age string) (RankByAge, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankByAge)**
+ - **[func (c \*Client) RankByDate(sex, country, dob, date string) (RankByDate, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankByDate)**
+ - **[func (c \*Client) RankInFuture(sex, country, dob, in string) (RankWithOffset, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankInFuture)**
+ - **[func (c \*Client) RankInPast(sex, country, dob, ago string) (RankWithOffset, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankInPast)**
+ - **[func (c \*Client) RankToday(sex, country, dob string) (RankToday, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankToday)**
+ - **[func (c \*Client) RemainingLifeExpectancy(sex, country, date, age string) (RemainingLifeExpectancy, error)](https://godoc.org/github.com/peterhellberg/population#Client.RemainingLifeExpectancy)**
+ - **[func (c \*Client) Table(country string, year, age int) (Table, error)](https://godoc.org/github.com/peterhellberg/population#Client.Table)**
+ - **[func (c \*Client) TableAllAges(country string, year int) (Table, error)](https://godoc.org/github.com/peterhellberg/population#Client.TableAllAges)**
+ - **[func (c \*Client) TableAllYears(country string, age int) (Table, error)](https://godoc.org/github.com/peterhellberg/population#Client.TableAllYears)**
+ - **[func (c \*Client) TotalLifeExpectancy(sex, country, dob string) (TotalLifeExpectancy, error)](https://godoc.org/github.com/peterhellberg/population#Client.TotalLifeExpectancy)**
+ - **[func (c \*Client) TotalPopulationByDate(country, date string) (TotalPopulation, error)](https://godoc.org/github.com/peterhellberg/population#Client.TotalPopulationByDate)**
+ - **[func (c \*Client) TotalPopulationTodayAndTomorrow(country string) (TotalPopulation, TotalPopulation, error)](https://godoc.org/github.com/peterhellberg/population#Client.TotalPopulationTodayAndTomorrow)**
+
 ## Usage
 
 **TotalLifeExpectancy**
@@ -87,25 +106,6 @@ func main() {
 	}
 }
 ```
-
-## Public API
-
- - **[func NewClient(httpClients ...\*http.Client) \*Client](https://godoc.org/github.com/peterhellberg/population#NewClient)**
- - **[func (c \*Client) DateByRank(sex, country, dob string, rank int) (DateByRank, error)](https://godoc.org/github.com/peterhellberg/population#Client.DateByRank)**
- - **[func (c \*Client) ListCountries() (CountryList, error)](https://godoc.org/github.com/peterhellberg/population#Client.ListCountries)**
- - **[func (c \*Client) MortalityDistributionTable(sex, country, age string) (MortalityDistributionTable, error)](https://godoc.org/github.com/peterhellberg/population#Client.MortalityDistributionTable)**
- - **[func (c \*Client) RankByAge(sex, country, dob, age string) (RankByAge, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankByAge)**
- - **[func (c \*Client) RankByDate(sex, country, dob, date string) (RankByDate, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankByDate)**
- - **[func (c \*Client) RankInFuture(sex, country, dob, in string) (RankWithOffset, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankInFuture)**
- - **[func (c \*Client) RankInPast(sex, country, dob, ago string) (RankWithOffset, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankInPast)**
- - **[func (c \*Client) RankToday(sex, country, dob string) (RankToday, error)](https://godoc.org/github.com/peterhellberg/population#Client.RankToday)**
- - **[func (c \*Client) RemainingLifeExpectancy(sex, country, date, age string) (RemainingLifeExpectancy, error)](https://godoc.org/github.com/peterhellberg/population#Client.RemainingLifeExpectancy)**
- - **[func (c \*Client) Table(country string, year, age int) (Table, error)](https://godoc.org/github.com/peterhellberg/population#Client.Table)**
- - **[func (c \*Client) TableAllAges(country string, year int) (Table, error)](https://godoc.org/github.com/peterhellberg/population#Client.TableAllAges)**
- - **[func (c \*Client) TableAllYears(country string, age int) (Table, error)](https://godoc.org/github.com/peterhellberg/population#Client.TableAllYears)**
- - **[func (c \*Client) TotalLifeExpectancy(sex, country, dob string) (TotalLifeExpectancy, error)](https://godoc.org/github.com/peterhellberg/population#Client.TotalLifeExpectancy)**
- - **[func (c \*Client) TotalPopulationByDate(country, date string) (TotalPopulation, error)](https://godoc.org/github.com/peterhellberg/population#Client.TotalPopulationByDate)**
- - **[func (c \*Client) TotalPopulationTodayAndTomorrow(country string) (TotalPopulation, TotalPopulation, error)](https://godoc.org/github.com/peterhellberg/population#Client.TotalPopulationTodayAndTomorrow)**
 
 ## Status
 
