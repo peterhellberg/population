@@ -32,3 +32,28 @@ func (c *Client) RemainingLifeExpectancy(sex, country, date, age string) (Remain
 
 	return resp, err
 }
+
+type TotalLifeExpectancy struct {
+	Sex     string  `json:"sex"`
+	Country string  `json:"country"`
+	Dob     string  `json:"dob"`
+	Total   float64 `json:"total_life_expectancy"`
+}
+
+// TotalLifeExpectancy calculates total life expectancy of
+// a person with given sex, country, and date of birth.
+//
+// <http://api.population.io/#!/life-expectancy/calculateTotalLifeExpectancy>
+//
+func (c *Client) TotalLifeExpectancy(sex, country, dob string) (TotalLifeExpectancy, error) {
+	path := fmt.Sprintf(`/life-expectancy/total/%s/%s/%s/`, sex, country, dob)
+	resp := TotalLifeExpectancy{}
+
+	if _, err := time.Parse("2006-01-02", dob); err != nil {
+		return resp, err
+	}
+
+	err := c.Get(path, &resp)
+
+	return resp, err
+}

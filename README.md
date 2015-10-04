@@ -14,6 +14,32 @@ Go library for the [World Population API](http://api.population.io/)
 
 ## Usage
 
+**TotalLifeExpectancy**
+
+```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+
+	"github.com/peterhellberg/population"
+)
+
+func main() {
+	p := population.NewClient()
+
+	t, err := p.TotalLifeExpectancy("male", "Sweden", "1983-04-28")
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	json.NewEncoder(os.Stdout).Encode(t)
+}
+```
+
 **ListCountries**
 
 ```go
@@ -55,7 +81,7 @@ import (
 func main() {
 	p := population.NewClient()
 
-	table, err := p.MortalityDistributionTable("Sweden", "male", "32y")
+	table, err := p.MortalityDistributionTable("male", "Sweden", "32y")
 	if err == nil {
 		json.NewEncoder(os.Stdout).Encode(table)
 	}
@@ -66,7 +92,7 @@ func main() {
 
  - [x] [countries](http://api.population.io/#!/countries)
  - [x] [wp-rank](http://api.population.io/#!/wp-rank)
- - [ ] [life-expectancy](http://api.population.io/#!/life-expectancy)
+ - [x] [life-expectancy](http://api.population.io/#!/life-expectancy)
  - [ ] [population](http://api.population.io/#!/population)
  - [x] [mortality-distribution](http://api.population.io/#!/mortality-distribution)
 
