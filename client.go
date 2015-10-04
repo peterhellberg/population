@@ -43,8 +43,8 @@ func NewClient(httpClients ...*http.Client) *Client {
 }
 
 // NewRequest creates a new API request.
-func (c *Client) NewRequest(path string) (*http.Request, error) {
-	u, err := url.Parse(c.BaseURL + path)
+func (c *Client) NewRequest(resourcePath string) (*http.Request, error) {
+	u, err := url.Parse(c.BaseURL + resourcePath)
 	if err != nil {
 		return nil, err
 	}
@@ -94,10 +94,10 @@ func (c *Client) Decode(req *http.Request, v interface{}) error {
 	return json.NewDecoder(resp.Body).Decode(v)
 }
 
-// Get creates a new request with the provided path
+// Get creates a new request with the provided resource path
 // then decodes the response into the value pointed to by v.
-func (c *Client) Get(path string, v interface{}) error {
-	req, err := c.NewRequest(path)
+func (c *Client) Get(resourcePath string, v interface{}) error {
+	req, err := c.NewRequest(resourcePath)
 	if err != nil {
 		return err
 	}
