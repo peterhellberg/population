@@ -10,13 +10,37 @@ Go library for the [World Population API](http://api.population.io/)
 
     go get -u github.com/peterhellberg/population
 
+## Usage
+
+**MortalityDistributionTable**
+
+```go
+package main
+
+import (
+	"encoding/json"
+	"os"
+
+	"github.com/peterhellberg/population"
+)
+
+func main() {
+	p := population.NewClient()
+
+	table, err := p.MortalityDistributionTable("Sweden", "male", "32y")
+	if err == nil {
+		json.NewEncoder(os.Stdout).Encode(table)
+	}
+}
+```
+
 ## Status
 
 [x] [countries](http://api.population.io/#!/countries)
 [ ] [wp-rank](http://api.population.io/#!/wp-rank)
 [ ] [life-expectancy](http://api.population.io/#!/life-expectancy)
 [ ] [population](http://api.population.io/#!/population)
-[ ] [mortality-distribution](http://api.population.io/#!/mortality-distribution)
+[x] [mortality-distribution](http://api.population.io/#!/mortality-distribution)
 
 ## License (MIT)
 
