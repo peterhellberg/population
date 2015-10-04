@@ -59,6 +59,10 @@ func main() {
 }
 ```
 
+```json
+{"sex":"male","country":"Sweden","dob":"1983-04-28","total_life_expectancy":85.3205032926867}
+```
+
 **ListCountries**
 
 ```go
@@ -85,6 +89,10 @@ func main() {
 }
 ```
 
+```json
+{"countries":["Afghanistan","Albania","Algeria","Angola","Antigua and Barbuda","Azerbaijan","Argentina","Australia","Austria","The Bahamas","Bahrain","Bangladesh","Armenia","Barbados","Belgium","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Belize","Solomon Islands","Brunei Darussalam","Bulgaria","Myanmar","Burundi","Belarus","Cambodia","Cameroon","Canada","Cabo Verde","Central African Republic","Sri Lanka","Chad","Chile","China","Colombia","Comoros","Mayotte","Congo","Dem Rep of Congo","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Benin","Denmark","Dominican Republic","Ecuador","El Salvador","Equatorial Guinea","Ethiopia","Eritrea","Estonia","Fiji","Finland","France","French Guiana","French Polynesia","Djibouti","Gabon","Georgia","The Gambia","West Bank and Gaza","Germany","Ghana","Kiribati","Greece","Grenada","Guadeloupe","Guam","Guatemala","Guinea","Guyana","Haiti","Honduras","Hong Kong SAR-China","Hungary","Iceland","India","Indonesia","Islamic Republic of Iran","Iraq","Ireland","Israel","Italy","Cote-d-Ivoire","Jamaica","Japan","Kazakhstan","Jordan","Kenya","Dem Peoples Rep of Korea","Rep of Korea","Kuwait","Kyrgyz Republic","Lao PDR","Lebanon","Lesotho","Latvia","Liberia","Libya","Lithuania","Luxembourg","Macao SAR China","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Martinique","Mauritania","Mauritius","Mexico","Mongolia","Moldova","Montenegro","Morocco","Mozambique","Oman","Namibia","Nepal","The Netherlands","Curacao","Aruba","New Caledonia","Vanuatu","New Zealand","Nicaragua","Niger","Nigeria","Norway","Federated States of Micronesia","Pakistan","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Guinea-Bissau","Timor-Leste","Puerto Rico","Qatar","Reunion","Romania","Russian Federation","Rwanda","St-Lucia","St-Vincent and the Grenadines","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovak Republic","Vietnam","Slovenia","Somalia","South Africa","Zimbabwe","Spain","South Sudan","Sudan","Western Sahara","Suriname","Swaziland","Sweden","Switzerland","Syrian Arab Rep","Tajikistan","Thailand","Togo","Tonga","Trinidad and Tobago","United Arab Emirates","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","FYR Macedonia","Arab Rep of Egypt","United Kingdom","Channel Islands","Tanzania","United States","US Virgin Islands","Burkina Faso","Uruguay","Uzbekistan","RB-de-Venezuela","Samoa","Rep of Yemen","Zambia","World"]}
+```
+
 **MortalityDistributionTable**
 
 ```go
@@ -105,6 +113,10 @@ func main() {
 		json.NewEncoder(os.Stdout).Encode(table)
 	}
 }
+```
+
+```json
+{"mortality_distribution":[{"age":30,"mortality_percent":0},{"age":35,"mortality_percent":0.18301053314006066},{"age":40,"mortality_percent":0.3940349931720418},{"age":45,"mortality_percent":0.5754961805614758},{"age":50,"mortality_percent":0.8954022579575682},{"age":55,"mortality_percent":1.356341082175081},{"age":60,"mortality_percent":1.973425541247046},{"age":65,"mortality_percent":2.9697416640766847},{"age":70,"mortality_percent":4.56219813009874},{"age":75,"mortality_percent":7.130513701033149},{"age":80,"mortality_percent":11.41127901607065},{"age":85,"mortality_percent":17.125367814281475},{"age":90,"mortality_percent":21.00234914822359},{"age":95,"mortality_percent":17.8959645040995},{"age":100,"mortality_percent":9.52990677877034},{"age":105,"mortality_percent":2.665309500672174},{"age":110,"mortality_percent":0.3098041369864069},{"age":115,"mortality_percent":0.019271048826542916},{"age":120,"mortality_percent":0.0005743130947408195},{"age":125,"mortality_percent":9.547634164945612e-06},{"age":130,"mortality_percent":1.0787857398267798e-07}]}
 ```
 
 ## License (MIT)
