@@ -12,7 +12,7 @@ Go library for the [World Population API](http://api.population.io/)
 
 ## Status
 
-[ ] [countries](http://api.population.io/#!/countries)
+[x] [countries](http://api.population.io/#!/countries)
 [ ] [wp-rank](http://api.population.io/#!/wp-rank)
 [ ] [life-expectancy](http://api.population.io/#!/life-expectancy)
 [ ] [population](http://api.population.io/#!/population)
