@@ -9,23 +9,23 @@ import (
 func TestRankToday(t *testing.T) {
 	for i, tt := range []struct {
 		path    string
-		dob     string
 		sex     string
 		country string
+		dob     string
 		rank    int
 	}{
 		{
 			"/wp-rank/1952-03-11/male/United Kingdom/today/",
-			"1952-03-11",
 			"male",
 			"United Kingdom",
+			"1952-03-11",
 			30000000,
 		},
 		{
 			"/wp-rank/1988-03-11/female/Germany/today/",
-			"1988-03-11",
 			"female",
 			"Germany",
+			"1988-03-11",
 			10000000,
 		},
 	} {
@@ -38,14 +38,14 @@ func TestRankToday(t *testing.T) {
 			w.Header().Set("Content-Type", "application/json")
 
 			json.NewEncoder(w).Encode(map[string]interface{}{
-				"dob":     tt.dob,
 				"sex":     tt.sex,
 				"country": tt.country,
+				"dob":     tt.dob,
 				"rank":    tt.rank,
 			})
 		})
 
-		resp, err := c.RankToday(tt.dob, tt.sex, tt.country)
+		resp, err := c.RankToday(tt.sex, tt.country, tt.dob)
 		ts.Close()
 
 		if err != nil {
@@ -73,27 +73,27 @@ func TestRankToday(t *testing.T) {
 func TestRankByDate(t *testing.T) {
 	for i, tt := range []struct {
 		path    string
-		dob     string
 		sex     string
 		country string
-		rank    int
+		dob     string
 		date    string
+		rank    int
 	}{
 		{
 			"/wp-rank/1952-03-11/male/United Kingdom/on/2015-10-04/",
-			"1952-03-11",
 			"male",
 			"United Kingdom",
-			30000000,
+			"1952-03-11",
 			"2015-10-04",
+			30000000,
 		},
 		{
 			"/wp-rank/1988-03-11/female/Germany/on/2015-10-04/",
-			"1988-03-11",
 			"female",
 			"Germany",
-			10000000,
+			"1988-03-11",
 			"2015-10-04",
+			10000000,
 		},
 	} {
 		ts, c := testServerAndClient(func(w http.ResponseWriter, r *http.Request) {
@@ -105,15 +105,15 @@ func TestRankByDate(t *testing.T) {
 			w.Header().Set("Content-Type", "application/json")
 
 			json.NewEncoder(w).Encode(map[string]interface{}{
-				"dob":     tt.dob,
 				"sex":     tt.sex,
 				"country": tt.country,
-				"rank":    tt.rank,
+				"dob":     tt.dob,
 				"date":    tt.date,
+				"rank":    tt.rank,
 			})
 		})
 
-		resp, err := c.RankByDate(tt.dob, tt.sex, tt.country, tt.date)
+		resp, err := c.RankByDate(tt.sex, tt.country, tt.dob, tt.date)
 		ts.Close()
 
 		if err != nil {
@@ -145,27 +145,27 @@ func TestRankByDate(t *testing.T) {
 func TestRankByAge(t *testing.T) {
 	for i, tt := range []struct {
 		path    string
-		dob     string
 		sex     string
 		country string
-		rank    int
+		dob     string
 		age     string
+		rank    int
 	}{
 		{
 			"/wp-rank/1952-03-11/male/United Kingdom/aged/49y2m/",
-			"1952-03-11",
 			"male",
 			"United Kingdom",
-			30000000,
+			"1952-03-11",
 			"49y2m",
+			30000000,
 		},
 		{
 			"/wp-rank/1988-03-11/female/Germany/aged/30y6m/",
-			"1988-03-11",
 			"female",
 			"Germany",
-			10000000,
+			"1988-03-11",
 			"30y6m",
+			10000000,
 		},
 	} {
 		ts, c := testServerAndClient(func(w http.ResponseWriter, r *http.Request) {
@@ -177,15 +177,15 @@ func TestRankByAge(t *testing.T) {
 			w.Header().Set("Content-Type", "application/json")
 
 			json.NewEncoder(w).Encode(map[string]interface{}{
-				"dob":     tt.dob,
 				"sex":     tt.sex,
 				"country": tt.country,
-				"rank":    tt.rank,
+				"dob":     tt.dob,
 				"age":     tt.age,
+				"rank":    tt.rank,
 			})
 		})
 
-		resp, err := c.RankByAge(tt.dob, tt.sex, tt.country, tt.age)
+		resp, err := c.RankByAge(tt.sex, tt.country, tt.dob, tt.age)
 		ts.Close()
 
 		if err != nil {
@@ -217,27 +217,27 @@ func TestRankByAge(t *testing.T) {
 func TestRankInPast(t *testing.T) {
 	for i, tt := range []struct {
 		path    string
-		dob     string
 		sex     string
 		country string
-		rank    int
+		dob     string
 		offset  string
+		rank    int
 	}{
 		{
 			"/wp-rank/1952-03-11/male/United Kingdom/ago/9y2m/",
-			"1952-03-11",
 			"male",
 			"United Kingdom",
-			30000000,
+			"1952-03-11",
 			"9y2m",
+			30000000,
 		},
 		{
 			"/wp-rank/1988-03-11/female/Germany/ago/1y6m/",
-			"1988-03-11",
 			"female",
 			"Germany",
-			10000000,
+			"1988-03-11",
 			"1y6m",
+			10000000,
 		},
 	} {
 		ts, c := testServerAndClient(func(w http.ResponseWriter, r *http.Request) {
@@ -249,15 +249,15 @@ func TestRankInPast(t *testing.T) {
 			w.Header().Set("Content-Type", "application/json")
 
 			json.NewEncoder(w).Encode(map[string]interface{}{
-				"dob":     tt.dob,
 				"sex":     tt.sex,
 				"country": tt.country,
-				"rank":    tt.rank,
+				"dob":     tt.dob,
 				"offset":  tt.offset,
+				"rank":    tt.rank,
 			})
 		})
 
-		resp, err := c.RankInPast(tt.dob, tt.sex, tt.country, tt.offset)
+		resp, err := c.RankInPast(tt.sex, tt.country, tt.dob, tt.offset)
 		ts.Close()
 
 		if err != nil {
@@ -289,27 +289,27 @@ func TestRankInPast(t *testing.T) {
 func TestRankInFuture(t *testing.T) {
 	for i, tt := range []struct {
 		path    string
-		dob     string
 		sex     string
 		country string
-		rank    int
+		dob     string
 		offset  string
+		rank    int
 	}{
 		{
 			"/wp-rank/1952-03-11/male/United Kingdom/in/9y2m/",
-			"1952-03-11",
 			"male",
 			"United Kingdom",
-			30000000,
+			"1952-03-11",
 			"9y2m",
+			30000000,
 		},
 		{
 			"/wp-rank/1988-03-11/female/Germany/in/1y6m/",
-			"1988-03-11",
 			"female",
 			"Germany",
-			10000000,
+			"1988-03-11",
 			"1y6m",
+			10000000,
 		},
 	} {
 		ts, c := testServerAndClient(func(w http.ResponseWriter, r *http.Request) {
@@ -321,15 +321,15 @@ func TestRankInFuture(t *testing.T) {
 			w.Header().Set("Content-Type", "application/json")
 
 			json.NewEncoder(w).Encode(map[string]interface{}{
-				"dob":     tt.dob,
 				"sex":     tt.sex,
 				"country": tt.country,
-				"rank":    tt.rank,
+				"dob":     tt.dob,
 				"offset":  tt.offset,
+				"rank":    tt.rank,
 			})
 		})
 
-		resp, err := c.RankInFuture(tt.dob, tt.sex, tt.country, tt.offset)
+		resp, err := c.RankInFuture(tt.sex, tt.country, tt.dob, tt.offset)
 		ts.Close()
 
 		if err != nil {
@@ -361,27 +361,27 @@ func TestRankInFuture(t *testing.T) {
 func TestDateByRank(t *testing.T) {
 	for i, tt := range []struct {
 		path       string
-		dob        string
 		sex        string
 		country    string
-		rank       int
+		dob        string
 		dateOnRank string
+		rank       int
 	}{
 		{
 			"/wp-rank/1952-03-11/male/United Kingdom/ranked/30000000/",
-			"1952-03-11",
 			"male",
 			"United Kingdom",
-			30000000,
+			"1952-03-11",
 			"2025-10-19",
+			30000000,
 		},
 		{
 			"/wp-rank/1988-03-11/female/Germany/ranked/10000000/",
-			"1988-03-11",
 			"female",
 			"Germany",
-			10000000,
+			"1988-03-11",
 			"2065-03-12",
+			10000000,
 		},
 	} {
 		ts, c := testServerAndClient(func(w http.ResponseWriter, r *http.Request) {
@@ -393,15 +393,15 @@ func TestDateByRank(t *testing.T) {
 			w.Header().Set("Content-Type", "application/json")
 
 			json.NewEncoder(w).Encode(map[string]interface{}{
-				"dob":          tt.dob,
 				"sex":          tt.sex,
 				"country":      tt.country,
-				"rank":         tt.rank,
+				"dob":          tt.dob,
 				"date_on_rank": tt.dateOnRank,
+				"rank":         tt.rank,
 			})
 		})
 
-		resp, err := c.DateByRank(tt.dob, tt.sex, tt.country, tt.rank)
+		resp, err := c.DateByRank(tt.sex, tt.country, tt.dob, tt.rank)
 		ts.Close()
 
 		if err != nil {

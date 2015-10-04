@@ -17,7 +17,7 @@ type MortalityDistributionTable struct {
 //
 // <http://api.population.io/#!/mortality-distribution/retrieveMortalityDistributionTable>
 //
-func (c *Client) MortalityDistributionTable(country, sex, age string) (MortalityDistributionTable, error) {
+func (c *Client) MortalityDistributionTable(sex, country, age string) (MortalityDistributionTable, error) {
 	path := fmt.Sprintf(`/mortality-distribution/%s/%s/%s/today/`, country, sex, age)
 	resp := MortalityDistributionTable{}
 

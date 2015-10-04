@@ -23,7 +23,7 @@ type RankToday struct {
 //
 // <http://api.population.io/#!/wp-rank/worldPopulationRankToday>
 //
-func (c *Client) RankToday(dob, sex, country string) (RankToday, error) {
+func (c *Client) RankToday(sex, country, dob string) (RankToday, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/today/`, dob, sex, country)
 	resp := RankToday{}
 
@@ -47,7 +47,7 @@ type RankByDate struct {
 //
 // <http://api.population.io/#!/wp-rank/worldPopulationRankByDate>
 //
-func (c *Client) RankByDate(dob, sex, country, date string) (RankByDate, error) {
+func (c *Client) RankByDate(sex, country, dob, date string) (RankByDate, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/on/%s/`, dob, sex, country, date)
 	resp := RankByDate{}
 
@@ -76,7 +76,7 @@ type RankByAge struct {
 //
 // <http://api.population.io/#!/wp-rank/worldPopulationRankByAge>
 //
-func (c *Client) RankByAge(dob, sex, country, age string) (RankByAge, error) {
+func (c *Client) RankByAge(sex, country, dob, age string) (RankByAge, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/aged/%s/`, dob, sex, country, age)
 	resp := RankByAge{}
 
@@ -101,7 +101,7 @@ type RankWithOffset struct {
 //
 // <http://api.population.io/#!/wp-rank/worldPopulationRankInPast>
 //
-func (c *Client) RankInPast(dob, sex, country, ago string) (RankWithOffset, error) {
+func (c *Client) RankInPast(sex, country, dob, ago string) (RankWithOffset, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/ago/%s/`, dob, sex, country, ago)
 	resp := RankWithOffset{}
 
@@ -120,7 +120,7 @@ func (c *Client) RankInPast(dob, sex, country, ago string) (RankWithOffset, erro
 //
 // <http://api.population.io/#!/wp-rank/worldPopulationRankInFuture>
 //
-func (c *Client) RankInFuture(dob, sex, country, in string) (RankWithOffset, error) {
+func (c *Client) RankInFuture(sex, country, dob, in string) (RankWithOffset, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/in/%s/`, dob, sex, country, in)
 	resp := RankWithOffset{}
 
@@ -145,7 +145,7 @@ type DateByRank struct {
 //
 // <http://api.population.io/#!/wp-rank/dateByWorldPopulationRank>
 //
-func (c *Client) DateByRank(dob, sex, country string, rank int) (DateByRank, error) {
+func (c *Client) DateByRank(sex, country, dob string, rank int) (DateByRank, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/ranked/%d/`, dob, sex, country, rank)
 	resp := DateByRank{}
 

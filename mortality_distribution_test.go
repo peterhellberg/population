@@ -9,15 +9,15 @@ import (
 func TestMortalityDistributionTable(t *testing.T) {
 	for i, tt := range []struct {
 		path    string
-		country string
 		sex     string
+		country string
 		age     string
 		data    []MortalityDistributionRow
 	}{
 		{
 			"/mortality-distribution/United Kingdom/male/49y2m/today/",
-			"United Kingdom",
 			"male",
+			"United Kingdom",
 			"49y2m",
 			[]MortalityDistributionRow{
 				{45, 0},
@@ -26,8 +26,8 @@ func TestMortalityDistributionTable(t *testing.T) {
 		},
 		{
 			"/mortality-distribution/Germany/female/30y6m/today/",
-			"Germany",
 			"female",
+			"Germany",
 			"30y6m",
 			[]MortalityDistributionRow{
 				{45, 0},
@@ -49,7 +49,7 @@ func TestMortalityDistributionTable(t *testing.T) {
 			})
 		})
 
-		resp, err := c.MortalityDistributionTable(tt.country, tt.sex, tt.age)
+		resp, err := c.MortalityDistributionTable(tt.sex, tt.country, tt.age)
 		ts.Close()
 
 		if err != nil {
