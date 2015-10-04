@@ -10,7 +10,7 @@ type CountryList struct {
 
 // ListCountries return a list of countries from the World Population API.
 //
-// http://api.population.io/#!/countries/listCountries
+// <http://api.population.io/#!/countries/listCountries>
 //
 func (c *Client) ListCountries() (CountryList, error) {
 	path := "/countries"

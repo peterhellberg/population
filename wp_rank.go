@@ -18,7 +18,7 @@ type RankToday struct {
 // RankToday calculates the world population rank of a person
 // with the given date of birth, sex and country of origin as of today.
 //
-// http://api.population.io/#!/wp-rank/worldPopulationRankToday
+// <http://api.population.io/#!/wp-rank/worldPopulationRankToday>
 //
 func (c *Client) RankToday(dob, sex, country string) (RankToday, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/today/`, dob, sex, country)
@@ -38,7 +38,7 @@ type RankByDate struct {
 // RankByDate calculates the world population rank of a person with the
 // given date of birth, sex and country of origin on a certain date.
 //
-// http://api.population.io/#!/wp-rank/worldPopulationRankByDate
+// <http://api.population.io/#!/wp-rank/worldPopulationRankByDate>
 //
 func (c *Client) RankByDate(dob, sex, country, date string) (RankByDate, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/on/%s/`, dob, sex, country, date)
@@ -59,7 +59,7 @@ type RankByAge struct {
 // the given date of birth, sex and country of origin on a certain
 // date as expressed by the person's age.
 //
-// http://api.population.io/#!/wp-rank/worldPopulationRankByAge
+// <http://api.population.io/#!/wp-rank/worldPopulationRankByAge>
 //
 func (c *Client) RankByAge(dob, sex, country, age string) (RankByAge, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/aged/%s/`, dob, sex, country, age)
@@ -80,7 +80,7 @@ type RankWithOffset struct {
 // the given date of birth, sex and country of origin on a certain
 // date as expressed by an offset towards the future from today.
 //
-// http://api.population.io/#!/wp-rank/worldPopulationRankInPast
+// <http://api.population.io/#!/wp-rank/worldPopulationRankInPast>
 //
 func (c *Client) RankInPast(dob, sex, country, ago string) (RankWithOffset, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/ago/%s/`, dob, sex, country, ago)
@@ -95,7 +95,7 @@ func (c *Client) RankInPast(dob, sex, country, ago string) (RankWithOffset, erro
 // the given date of birth, sex and country of origin on a certain
 // date as expressed by an offset towards the future from today.
 //
-// http://api.population.io/#!/wp-rank/worldPopulationRankInFuture
+// <http://api.population.io/#!/wp-rank/worldPopulationRankInFuture>
 //
 func (c *Client) RankInFuture(dob, sex, country, in string) (RankWithOffset, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/in/%s/`, dob, sex, country, in)
@@ -116,7 +116,7 @@ type DateByRank struct {
 // date of birth, sex and country of origin has reached (or will reach)
 // a certain world population rank.
 //
-// http://api.population.io/#!/wp-rank/dateByWorldPopulationRank
+// <http://api.population.io/#!/wp-rank/dateByWorldPopulationRank>
 //
 func (c *Client) DateByRank(dob, sex, country string, rank int) (DateByRank, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/ranked/%d/`, dob, sex, country, rank)

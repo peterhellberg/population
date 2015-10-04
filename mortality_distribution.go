@@ -14,6 +14,9 @@ type MortalityDistributionTable struct {
 }
 
 // MortalityDistributionTable retrieves the mortality distribution table for the given country, sex and age.
+//
+// <http://api.population.io/#!/mortality-distribution/retrieveMortalityDistributionTable>
+//
 func (c *Client) MortalityDistributionTable(country, sex, age string) (MortalityDistributionTable, error) {
 	path := fmt.Sprintf(`/mortality-distribution/%s/%s/%s/today/`, country, sex, age)
 	resp := MortalityDistributionTable{}
