@@ -12,6 +12,32 @@ Go library for the [World Population API](http://api.population.io/)
 
 ## Usage
 
+**ListCountries**
+
+```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+
+	"github.com/peterhellberg/population"
+)
+
+func main() {
+	p := population.NewClient()
+
+	list, err := p.ListCountries()
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+
+	json.NewEncoder(os.Stdout).Encode(list)
+}
+```
+
 **MortalityDistributionTable**
 
 ```go
