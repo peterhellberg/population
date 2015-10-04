@@ -93,7 +93,7 @@ func main() {
  - [x] [countries](http://api.population.io/#!/countries)
  - [x] [wp-rank](http://api.population.io/#!/wp-rank)
  - [x] [life-expectancy](http://api.population.io/#!/life-expectancy)
- - [ ] [population](http://api.population.io/#!/population)
+ - [x] [population](http://api.population.io/#!/population)
  - [x] [mortality-distribution](http://api.population.io/#!/mortality-distribution)
 
 ## License (MIT)
