@@ -1,6 +1,9 @@
 package population
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 // WorldPopulationRank contains date of birth, sex, country and rank
 type WorldPopulationRank struct {
@@ -24,6 +27,10 @@ func (c *Client) RankToday(dob, sex, country string) (RankToday, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/today/`, dob, sex, country)
 	resp := RankToday{}
 
+	if _, err := time.Parse("2006-01-02", dob); err != nil {
+		return resp, err
+	}
+
 	err := c.Get(path, &resp)
 
 	return resp, err
@@ -43,6 +50,14 @@ type RankByDate struct {
 func (c *Client) RankByDate(dob, sex, country, date string) (RankByDate, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/on/%s/`, dob, sex, country, date)
 	resp := RankByDate{}
+
+	if _, err := time.Parse("2006-01-02", dob); err != nil {
+		return resp, err
+	}
+
+	if _, err := time.Parse("2006-01-02", date); err != nil {
+		return resp, err
+	}
 
 	err := c.Get(path, &resp)
 
@@ -65,6 +80,10 @@ func (c *Client) RankByAge(dob, sex, country, age string) (RankByAge, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/aged/%s/`, dob, sex, country, age)
 	resp := RankByAge{}
 
+	if _, err := time.Parse("2006-01-02", dob); err != nil {
+		return resp, err
+	}
+
 	err := c.Get(path, &resp)
 
 	return resp, err
@@ -86,6 +105,10 @@ func (c *Client) RankInPast(dob, sex, country, ago string) (RankWithOffset, erro
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/ago/%s/`, dob, sex, country, ago)
 	resp := RankWithOffset{}
 
+	if _, err := time.Parse("2006-01-02", dob); err != nil {
+		return resp, err
+	}
+
 	err := c.Get(path, &resp)
 
 	return resp, err
@@ -100,6 +123,10 @@ func (c *Client) RankInPast(dob, sex, country, ago string) (RankWithOffset, erro
 func (c *Client) RankInFuture(dob, sex, country, in string) (RankWithOffset, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/in/%s/`, dob, sex, country, in)
 	resp := RankWithOffset{}
+
+	if _, err := time.Parse("2006-01-02", dob); err != nil {
+		return resp, err
+	}
 
 	err := c.Get(path, &resp)
 
@@ -121,6 +148,10 @@ type DateByRank struct {
 func (c *Client) DateByRank(dob, sex, country string, rank int) (DateByRank, error) {
 	path := fmt.Sprintf(`/wp-rank/%s/%s/%s/ranked/%d/`, dob, sex, country, rank)
 	resp := DateByRank{}
+
+	if _, err := time.Parse("2006-01-02", dob); err != nil {
+		return resp, err
+	}
 
 	err := c.Get(path, &resp)
 
