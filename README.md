@@ -1,4 +1,4 @@
-***Warning: This library should not be used just yet***
+***Warning: This library is brand new, and should not be considered stable just yet***
 
 # population
 
